@@ -6,13 +6,15 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <h2>Listagem</h2>
     <ul>
       <% customersList.map(customer => { %>
-        <li><%= customer.name %></li>
+        <li><%= customer.name %> (<%= customer._id %>)</li>
       <% }) %>
     </ul>
     <form action="save" method="post">
       <div>
+        <h2>Cadastro</h2>
         <label for="">Nome
           <input type="text" name="name">
   
@@ -29,5 +31,36 @@
       </p>
 
     </form>
+
+    <h2>Exclusão</h2>
+      <form action="delete" method="post">
+        <p>
+          <label for="">ID:
+            <input type="text" name="id">
+          </label>
+        </p>
+
+        <p>
+          <input type="submit" value="Excluir">
+        </p>
+      </form>
+
+      <h2>Edição</h2>
+      <form action="update" method="post">
+        <p>
+          <label for="">ID:
+            <input type="text" name="id">
+          </label>
+        </p>
+
+        <label for="">Nome
+          <input type="text" name="name">
+  
+        </label>
+
+        <p>
+          <input type="submit" value="Update">
+        </p>
+      </form>
   </body>
 </html>

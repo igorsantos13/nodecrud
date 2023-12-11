@@ -19,4 +19,21 @@ router.post("/save", async (req, res) => {
   res.send(result)
 })
 
+router.post('/delete', async (req, res) => {
+  const id = req.body.id;
+
+  const result = await db.removeCustomer(id)
+  console.log(result)
+  res.json(result)
+})
+
+router.post('/update', async (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name
+
+  const result = await db.updateCustomer(id, name)
+  console.log(result)
+  res.json(result)
+})
+
 module.exports = router;

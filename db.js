@@ -32,11 +32,17 @@ async function list(){
 
 async function removeCustomer(id){
   const db = await connect()
-  return db.collenction('crudCustomer').deleteOne({_id: new ObjectId(id)})
+  return db.collection('crudCustomer').deleteOne({_id: new ObjectId(id)})
+}
+
+async function updateCustomer(id, name){
+  const db = await connect()
+  return db.collection('crudCustomer').updateOne({_id: new ObjectId(id)}, {$set: {name}})
 }
 
 module.exports = {
   insert,
   list,
-  removeCustomer
+  removeCustomer,
+  updateCustomer
 }
